@@ -1,16 +1,12 @@
 package com.example.project;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,82 +21,49 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
     private ArrayList<Svamp> svampArrayList=new ArrayList<>();
-
     private RecyclerViewAdapter adapter;
-
-    //private final String JSON_URL = "https://mobprog.webug.se/json-api?login=a23wilgr";
-    private final String JSON_FILE = "svamp.json";
+    private final String JSON_URL = "https://mobprog.webug.se/json-api?login=a23wilgr";
+    //private final String JSON_FILE = "svamp.json";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new JsonFile(this, this).execute(JSON_FILE);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        RecyclerView view = findViewById(R.id.recyclerview_item);
+        view.setLayoutManager(new LinearLayoutManager(this));
+
+
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, svampArrayList, new RecyclerViewAdapter.OnClickListener() {
             @Override
             public void onClick(Svamp item) {
                 Toast.makeText(MainActivity.this, item.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-        RecyclerView view = findViewById(R.id.recyclerview_item);
-        view.setLayoutManager(new LinearLayoutManager(this));
+
         view.setAdapter(adapter);
+
+        new JsonFile(this, this).execute(JSON_URL);
+
+    }
+
+    private void setSupportActionBar(Toolbar toolbar) {
     }
 
     @Override
     public void onPostExecute(String json) {
-        Log.d("MainActivity", json);
         Gson gson = new Gson();
         Type type = new TypeToken<List<Svamp>>() {}.getType();
-        svampArrayList = gson.fromJson(json, type);
+        //svampArrayList = gson.fromJson(json, type);
+        List<Svamp> svampList = gson.fromJson(json, type);
+
+        svampArrayList.addAll(svampList);
+
+        adapter.notifyDataSetChanged();
     }
 
-    public static class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-
-        private List<Svamp> items;
-        private LayoutInflater layoutInflater;
-        private OnClickListener onClickListener;
-
-        RecyclerViewAdapter(Context context, List<Svamp> items, OnClickListener onClickListener) {
-            this.layoutInflater = LayoutInflater.from(context);
-            this.items = items;
-            this.onClickListener = onClickListener;
-        }
-
-        @Override
-        @NonNull
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new ViewHolder(layoutInflater.inflate(R.layout.activity_main, parent, false));
-        }
-
-        @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.title.setText(items.get(position).getTitle());
-        }
-
-        @Override
-        public int getItemCount() {
-            return items.size();
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-            TextView title;
-
-            ViewHolder(View itemView) {
-                super(itemView);
-                itemView.setOnClickListener(this);
-                title = itemView.findViewById(R.id.title);
-            }
-
-            @Override
-            public void onClick(View view) {
-                onClickListener.onClick(items.get(getAdapterPosition()));
-            }
-        }
-
-        public interface OnClickListener {
-            void onClick(Svamp item);
-        }
-    }
 }
