@@ -14,44 +14,56 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private List<Svamp> items;
+    private List<Svamp> svampar;
     private LayoutInflater layoutInflater;
     private OnClickListener onClickListener;
 
     RecyclerViewAdapter(Context context, List<Svamp> items, OnClickListener onClickListener) {
         this.layoutInflater = LayoutInflater.from(context);
-        this.items = items;
+        this.svampar = svampar;
         this.onClickListener = onClickListener;
     }
 
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(layoutInflater.inflate(R.layout.activity_main, parent, false));
+        View view = (layoutInflater.inflate(R.layout.activity_recyclerview_item, parent, false));
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.title.setText(items.get(position).getTitle());
+        Svamp svamp = svampar.get(position);
+        holder.tvName.setText(svampar.get(position).getName());
+        holder.tvLocation.setText(svampar.get(position).getLocation());
+        holder.tvCategory.setText(svampar.get(position).getCategory());
+        holder.tvSize.setText(svampar.get(position).getSize());
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return svampar.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView title;
+        TextView tvName;
+        TextView tvLocation;
+        TextView tvCategory;
+        TextView tvSize;
+
 
         ViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            title = itemView.findViewById(R.id.title);
+            tvName = itemView.findViewById(R.id.tvName);
+            tvLocation = itemView.findViewById(R.id.tvLocation);
+            tvCategory = itemView.findViewById(R.id.tvCategory);
+            tvSize = itemView.findViewById(R.id.tvSize);
         }
 
         @Override
         public void onClick(View view) {
-            onClickListener.onClick(items.get(getAdapterPosition()));
+            onClickListener.onClick(svampar.get(getAdapterPosition()));
         }
     }
 
