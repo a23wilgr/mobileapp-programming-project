@@ -38,28 +38,24 @@
             android:id="@+id/tvName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
-            android:padding="8dp"/>
-
-        <TextView
-            android:id="@+id/tvLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Location"
             android:padding="8dp"/>
 
         <TextView
             android:id="@+id/tvCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Category"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/tvLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:padding="8dp"/>
 
         <TextView
             android:id="@+id/tvSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Size"
             android:padding="8dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,42 +1,37 @@
 package com.example.project;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Svamp {
+    @SerializedName("name")
     private String name;
-    private String location;
+    @SerializedName("category")
     private String category;
+    @SerializedName("location")
+    private String location;
+    @SerializedName("size")
     private String size;
 
-    // Getter methods
+
+    public Svamp(String name, String category, String location, String size){
+        this.name = name;
+        this.category = category;
+        this.location = location;
+        this.size = size;
+    }
+
     public String getName() {
         return name;
     }
-
-    public String getLocation() {
-        return location;
-    }
-
     public String getCategory() {
         return category;
+    }
+    public String getLocation() {
+        return location;
     }
 
     public String getSize() {
         return size;
     }
 
-    // Setter methods
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
 }

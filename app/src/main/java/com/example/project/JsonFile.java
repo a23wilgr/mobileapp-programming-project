@@ -8,9 +8,8 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 public class JsonFile {
-
-    private final JsonTask.JsonTaskListener listener;
     private final Activity activity;
+    private final com.example.project.JsonTask.JsonTaskListener listener;
 
     public JsonFile(Activity activity, JsonTask.JsonTaskListener listener) {
         this.activity = activity;
