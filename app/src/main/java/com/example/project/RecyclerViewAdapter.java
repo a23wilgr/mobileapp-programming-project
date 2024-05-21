@@ -18,7 +18,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private LayoutInflater layoutInflater;
     private OnClickListener onClickListener;
 
-    RecyclerViewAdapter(Context context, List<Svamp> items, OnClickListener onClickListener) {
+    RecyclerViewAdapter(Context context, List<Svamp> Svampar, OnClickListener onClickListener) {
         this.layoutInflater = LayoutInflater.from(context);
         this.svampar = svampar;
         this.onClickListener = onClickListener;
