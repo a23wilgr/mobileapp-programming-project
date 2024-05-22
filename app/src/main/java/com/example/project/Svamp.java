@@ -3,6 +3,8 @@ package com.example.project;
 import com.google.gson.annotations.SerializedName;
 
 public class Svamp {
+    @SerializedName("ID")
+    private String id;
     @SerializedName("name")
     private String name;
     @SerializedName("category")
@@ -13,11 +15,16 @@ public class Svamp {
     private String size;
 
 
-    public Svamp(String name, String category, String location, String size){
+    public Svamp(String id, String name, String category, String location, String size){
+        this.id = id;
         this.name = name;
         this.category = category;
         this.location = location;
         this.size = size;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
@@ -29,7 +36,6 @@ public class Svamp {
     public String getLocation() {
         return location;
     }
-
     public String getSize() {
         return size;
     }
