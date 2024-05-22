@@ -6,15 +6,15 @@ import com.google.gson.annotations.SerializedName;
 
 public class Svamp {
     @SerializedName("ID")
-    public String id;
+    private String id;
     @SerializedName("name")
-    public String name;
+    private String name;
     @SerializedName("category")
-    public String category;
+    private String category;
     @SerializedName("location")
-    public String location;
+    private String location;
     @SerializedName("size")
-    public String size;
+    private String size;
 
 
     public Svamp(String name){
