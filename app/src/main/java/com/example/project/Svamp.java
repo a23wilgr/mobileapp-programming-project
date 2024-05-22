@@ -1,21 +1,23 @@
 package com.example.project;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Svamp {
     @SerializedName("ID")
-    private String id;
+    public String id;
     @SerializedName("name")
-    private String name;
+    public String name;
     @SerializedName("category")
-    private String category;
+    public String category;
     @SerializedName("location")
-    private String location;
+    public String location;
     @SerializedName("size")
-    private String size;
+    public String size;
 
 
-    public Svamp(String id, String name, String category, String location, String size){
+    public Svamp(String name){
         this.id = id;
         this.name = name;
         this.category = category;
@@ -23,21 +25,13 @@ public class Svamp {
         this.size = size;
     }
 
-    public String getId() {
-        return id;
+    @NonNull
+    @Override
+    public String toString(){
+        return name + "Belongs to the family " + category + "Can be found in/near " + location + " and is " + size + "cm tall";
     }
-
-    public String getName() {
-        return name;
-    }
-    public String getCategory() {
-        return category;
-    }
-    public String getLocation() {
-        return location;
-    }
-    public String getSize() {
-        return size;
+    public String getTitle(){
+        return name + "Belongs to the family " + category + "Can be found in/near " + location + " and is " + size + "cm tall";
     }
 
 }

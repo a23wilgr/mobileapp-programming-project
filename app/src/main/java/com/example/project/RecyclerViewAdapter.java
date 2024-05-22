@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -14,13 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private List<Svamp> items;
-    private OnClickListener onClickListener;
     private LayoutInflater layoutInflater;
+    private OnClickListener onClickListener;
 
     RecyclerViewAdapter(Context context, List<Svamp> items, OnClickListener onClickListener) {
+        this.layoutInflater = LayoutInflater.from(context);
         this.items = items;
         this.onClickListener = onClickListener;
-        this.layoutInflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -31,10 +32,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.tvName.setText(items.get(position).getName());
-        holder.tvCategory.setText(items.get(position).getCategory());
-        holder.tvLocation.setText(items.get(position).getLocation());
-        holder.tvSize.setText(items.get(position).getSize());
+        holder.title.setText(items.get(position).getTitle());
     }
 
     @Override
@@ -43,17 +41,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tvName;
-        TextView tvCategory;
-        TextView tvLocation;
-        TextView tvSize;
+        TextView title;
 
         ViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            tvName = itemView.findViewById(R.id.tvName);
-            tvCategory = itemView.findViewById(R.id.tvCategory);
-            tvSize = itemView.findViewById(R.id.tvSize);
+            title = itemView.findViewById(R.id.title);
         }
 
         @Override
