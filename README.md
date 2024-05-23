@@ -35,7 +35,7 @@ Programkod - onPostExecute
         svamp = gson.fromJson(json, type);
     }
     
-    
+      
 ```
 
 Bilder.
