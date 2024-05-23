@@ -13,10 +13,5 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
         TextView textAbout = findViewById(R.id.textAbout);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null){
-            String about = extras.getString("about");
-            textAbout.setText(about);
-        }
     }
 }

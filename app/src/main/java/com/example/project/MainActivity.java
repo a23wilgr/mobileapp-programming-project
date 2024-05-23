@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     private RecyclerViewAdapter adapter;
 
-    private final String JSON_URL = "https://mobprog.webug.se/json-api?login=a23wilgr";
+    //private final String JSON_URL = "https://mobprog.webug.se/json-api?login=a23wilgr";
     private final String JSON_FILE = "svamp.json";
 
 
@@ -33,13 +33,18 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         new JsonFile(this, this).execute(JSON_FILE);
+
+        //new JsonTask(this).execute(JSON_URL);
+
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, svamp, new RecyclerViewAdapter.OnClickListener() {
             @Override
             public void onClick(Svamp item) {
                 Toast.makeText(MainActivity.this, item.toString(), Toast.LENGTH_SHORT).show();
             }
         });
+
         RecyclerView view = findViewById(R.id.recyclerView);
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(adapter);

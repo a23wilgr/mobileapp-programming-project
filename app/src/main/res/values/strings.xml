@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Svamperiet</string>
-    <string name="about">Info om oss</string>
     <string name="rubrik">Posionous mushrooms</string>
+    <string name="about">Välkommen till Svamperiet! Här hittar du massor med viktig, rolig och spännande fakta om svampar. Både om giftiga, och ätliga svampar.
+    T.ex. var de kan hittas, hur de smakar, vad du ska akta dig för och vad du ska leta efter.</string>
+    <string name="about2">Denna app är gjord speciellt för dig som är nybörjare och inte vet så mycket om svampar. Det är väldigt bra att lära sig vilka svampar som kan ätas,
+    och vilka svampar som absolut inte ska intas, för att de är giftiga. Du kommer lära dig om olika svampar, vilka artfamiljer de tillhör, och var de växer. Denna app passar
+    även bra för dig som är van svampplockare, och vill hålla dig up to date och fräscha till minnet.</string>
+
 </resources>

@@ -42,9 +42,9 @@ public class Svamp {
         String str=name;
         str+=" belongs to the family ";
         str+=category;
-        str+= ". Can be found near ";
+        str+= ". It can be found near ";
         str+=location;
-        str+=" and is ";
+        str+=", and is ";
         str+=size;
         str+="cm tall.";
         return str;
