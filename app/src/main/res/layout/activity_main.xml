@@ -21,6 +21,7 @@
         android:textAlignment="center"
         android:background="@color/colorPrimary"
         android:textStyle="italic"
+        android:textColor="#ffffff"
         />
 
     <androidx.recyclerview.widget.RecyclerView

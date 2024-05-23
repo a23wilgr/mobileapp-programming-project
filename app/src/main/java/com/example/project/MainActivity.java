@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     @Override
     public void onPostExecute(String json) {
-        Log.d("MainActivity", json);
         Gson gson = new Gson();
         Type type = new TypeToken<List<Svamp>>() {}.getType();
         svamp = gson.fromJson(json, type);
