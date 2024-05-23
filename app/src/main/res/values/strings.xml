@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Svamperiet</string>
     <string name="about">Info om oss</string>
+    <string name="rubrik">Posionous mushrooms</string>
 </resources>
