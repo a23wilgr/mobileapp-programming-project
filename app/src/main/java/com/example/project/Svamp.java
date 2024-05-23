@@ -28,10 +28,26 @@ public class Svamp {
     @NonNull
     @Override
     public String toString(){
-        return name + "Belongs to the family " + category + "Can be found in/near " + location + " and is " + size + "cm tall";
+        String str=name;
+        str+=" belongs to the family ";
+        str+=category;
+        str+= ". Can be found near ";
+        str+=location;
+        str+=" and is ";
+        str+=size;
+        str+="cm tall.";
+        return str;
     }
     public String getTitle(){
-        return name + "Belongs to the family " + category + "Can be found in/near " + location + " and is " + size + "cm tall";
+        String str=name;
+        str+=" belongs to the family ";
+        str+=category;
+        str+= ". Can be found near ";
+        str+=location;
+        str+=" and is ";
+        str+=size;
+        str+="cm tall.";
+        return str;
     }
 
 }
